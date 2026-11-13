@@ -56,7 +56,7 @@ section.b{padding-block:54px}
 .steps b{display:block;font-family:var(--cond);font-weight:500;font-size:24px;letter-spacing:.03em;text-transform:uppercase;line-height:1.05;margin:4px 0 6px}
 .steps p{margin:0;color:var(--muted);font-size:15px}
 .quote{font-family:var(--mono);font-size:16px;line-height:1.55;background:var(--sheet);border:1px solid var(--rule);padding:22px 20px;margin-top:30px}
-.quote .chr{text-transform:uppercase;margin-left:30%}
+.quote .chr{text-transform:uppercase;margin-left:26%}
 .quote .par{color:var(--muted);margin-left:24%}
 .quote .dia{margin:0 6% 0 14%}
 .crew{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
@@ -66,7 +66,10 @@ section.b{padding-block:54px}
 .crew b{font-family:var(--cond);font-weight:500;font-size:21px;letter-spacing:.03em;text-transform:uppercase;display:block;line-height:1}
 .crew small{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
 @media (max-width:400px){.crew small{display:none}}
-form,.done{max-width:620px}
+form,.done{max-width:620px;margin-left:auto;margin-right:auto}
+#pedido .h{max-width:620px;margin-left:auto;margin-right:auto}
+#pedido .crew{max-width:620px;margin-left:auto;margin-right:auto}
+#pedido .note,#pedido .err{text-align:center}
 .fs{border:1px solid var(--txt);background:var(--sheet)}
 .fs-h{display:flex;justify-content:space-between;background:var(--txt);color:var(--paper);font-family:var(--cond);font-weight:500;font-size:13px;letter-spacing:.2em;padding:9px 12px;text-transform:uppercase}
 .row{display:grid;grid-template-columns:86px 1fr;border-top:1px solid var(--rule);min-height:52px}
@@ -105,7 +108,7 @@ footer a{color:#efe9e1}
 <header class="ink g">
  <div class="w">
   <div class="bar"><span>José Inácio × Pedro Fontes</span><span id="tc">00:00:00:00</span></div>
-  <div class="frame grain"><video src="media/hero.mp4" autoplay muted loop playsinline preload="metadata"></video><div class="sub" id="sub">Contem-nos o vosso dia.</div></div>
+  <div class="frame grain"><video src="media/hero.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
   <div class="poster">
    <div class="pre">Vídeo · Fotografia · Norte de Portugal</div>
    <h1>O vosso dia merece ser visto outra vez.</h1>
@@ -141,8 +144,8 @@ footer a{color:#efe9e1}
    <div><b>Filme e álbum</b><p>Primeiro um teaser, depois o filme e as fotografias, com a mesma linguagem.</p></div>
   </div>
   <div class="quote">
-   <div class="chr">José</div><div class="par">(para os noivos)</div>
-   <div class="dia">Bons filmes há muitos. O que procuro é que, daqui a vinte anos, voltem a sentir tudo o que viveram nesse dia.</div>
+   <div class="chr">José e Pedro</div><div class="par">(para os noivos)</div>
+   <div class="dia">Uma boa reportagem é importante. Mas, para nós, o mais importante é que consigam voltar a sentir tudo o que viveram nesse dia.</div>
   </div>
  </div>
 </section>
@@ -202,7 +205,6 @@ const $=id=>document.getElementById(id);
 (function(){const el=$('tc');const t0=performance.now();const p=n=>String(n).padStart(2,'0');
  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
  setInterval(()=>{const s=(performance.now()-t0)/1000;el.textContent=`00:${p(Math.floor(s/60)%60)}:${p(Math.floor(s)%60)}:${p(Math.floor((s%1)*24))}`},42)})();
-(function(){const L=["Contem-nos o vosso dia.","Vídeo e fotografia, uma só equipa.","Do primeiro nervosismo à última dança."];let i=0;setInterval(()=>{i=(i+1)%L.length;$('sub').textContent=L[i]},3200)})();
 (function(){const s=$('sheet');[1,3,5,8,6,11,2,12].forEach((k,i)=>{const n=String(k).padStart(2,'0');const f=document.createElement('figure');
  f.innerHTML=`<img src="img/galeria/g${n}.jpg" alt="Fotografia de casamento por Pedro Fontes" decoding="async"><figcaption><span>▸ ${String(i+1).padStart(2,'0')}A</span><span>${String(i+1).padStart(2,'0')}</span></figcaption>`;s.appendChild(f)})})();
 document.querySelectorAll('.reels video').forEach(v=>{v.addEventListener('play',()=>document.querySelectorAll('.reels video').forEach(o=>{if(o!==v)o.pause()}))});

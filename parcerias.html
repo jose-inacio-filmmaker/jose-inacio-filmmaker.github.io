@@ -63,7 +63,9 @@ section.b{padding-block:60px}
 .crew .r{font-family:var(--mono);font-size:11px;text-transform:uppercase;color:var(--muted-ink);display:block}
 .crew b{font-family:var(--cond);font-weight:500;font-size:26px;text-transform:uppercase;display:block;line-height:1}
 .crew small{color:var(--teal-ink)}
-form{border:2px solid var(--txt);background:#f8f6f1;max-width:640px}
+form{border:2px solid var(--txt);background:#f8f6f1;max-width:640px;margin:0 auto}
+#conversa .h{max-width:640px;margin-left:auto;margin-right:auto}
+#conversa .note{text-align:center}
 .fh{display:flex;justify-content:space-between;background:var(--txt);color:var(--paper);font-family:var(--mono);font-size:13px;padding:8px 12px;text-transform:uppercase}
 .row{display:grid;grid-template-columns:130px 1fr;border-top:1px solid var(--rule)}
 .row:first-of-type{border-top:0}
@@ -86,7 +88,7 @@ footer a{color:var(--teal-ink)}
 <header class="ink g">
  <div class="w">
   <div class="bar"><span>JOSÉ INÁCIO × PEDRO FONTES</span><span>PARCERIAS</span><span id="tc">00:00:00:00</span></div>
-  <div class="frame grain"><video src="media/hero.mp4" autoplay muted loop playsinline preload="metadata"></video><div class="sub" id="sub">Um filme. Um álbum. Uma equipa.</div></div>
+  <div class="frame grain"><video src="media/hero.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
   <div class="open">
    <div><div class="slug">Para quintas e wedding planners</div><h1>Um filme. Um álbum. Uma equipa.</h1></div>
    <div><p>Somos o José Inácio (vídeo) e o Pedro Fontes (fotografia). Trabalhamos juntos em casamentos no norte de Portugal: combinamos tudo antes e, no dia, não nos atrapalhamos. Os noivos recebem um filme e um álbum com a mesma linguagem, e vocês ganham um parceiro em quem podem confiar.</p>
@@ -175,7 +177,6 @@ const $=id=>document.getElementById(id);
 (function(){const el=$('tc');const t0=performance.now();const p=n=>String(n).padStart(2,'0');
  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
  setInterval(()=>{const s=(performance.now()-t0)/1000;el.textContent=`00:${p(Math.floor(s/60)%60)}:${p(Math.floor(s)%60)}:${p(Math.floor((s%1)*24))}`},42)})();
-(function(){const L=["Um filme. Um álbum. Uma equipa.","Vídeo por José Inácio.","Fotografia por Pedro Fontes."];let i=0;setInterval(()=>{i=(i+1)%L.length;$('sub').textContent=L[i]},3200)})();
 (function(){const s=$('sheet');for(let i=1;i<=12;i++){const f=document.createElement('figure');const n=String(i).padStart(2,'0');
  f.innerHTML=`<img src="img/galeria/g${n}.jpg" alt="Fotografia de casamento por Pedro Fontes" decoding="async"><figcaption><span>▸ ${n}A</span><span>${n}</span></figcaption>`;s.appendChild(f)}})();
 $('f').addEventListener('submit',e=>{e.preventDefault();
